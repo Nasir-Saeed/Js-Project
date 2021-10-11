@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai ChatBot Project</title>
+</head>
+
+<style>
+    #fillone {
+        border: 3px solid grey;
+    }
+
+    .midone {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    .text-center-two {
+        border: 3px solid gray;
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .stylingthree {
+        border: 3px solid gray;
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+    }
+
+    .stylingthree input {
+        width: 280px;
+    }
+</style>
+
+<body>
+    <section id="fillone">
+        <div class="midone">
+            <h1>Currency Converter</h1>
+            <input type="number" id="numone">
+            <select name="current" id="moneyone">
+                <option value="dollar">United State Dollar</option>
+                <option value="india">India</option>
+                <option value="dinar">Kuwaiti Dinar</option>
+                <option value="riyal">Omani riyal</option>
+            </select>
+            <button onclick="connect()">Convert</button>
+            <br>
+            <h1 id="resultone"></h1>
+            <h2 id="currencyone"></h2>
+        </div>
+
+    </section>
+
+    <div class="text-center-two">
+        <h1>Grading System</h1>
+        <input type="number" id="numtwo" placeholder="Enter Your Marks">
+        <br>
+        <br>
+        <button onclick="ourgrade()">Submit</button>
+        <h1 id="resulttwo"></h1>
+
+    </div>
+
+    <div class="stylingthree">
+        <h1>jacket Checker: should i carry jacket today</h1>
+        <!-- jacket Checker: should i carry jacket today
+            user will be asked for the current Temperture
+            if 25 don't carry
+            if less than 25 carry jacket
+            if less than 15 carry coat
+            if 0 or less  don't go out -->
+        <input type="number" id=numthree placeholder="Check Temperature as per your requirement">
+        <button onclick="check()">Check</button>
+        <h1 id="resultthree"></h1>
+    </div>
+
+    <script>
+        function connect() {
+
+            let currency = document.getElementById('moneyone').value
+            if (currency === "dollar") {
+                let num1 = document.getElementById('numone').value
+                let num2 = (170.81).toFixed();
+                let result = document.getElementById('resultone').innerText = `${num1} Dollar to Pkr ` + ` ` + Number(num1) *
+                    Number(num2);
+            }
+
+            else if (currency === "india") {
+                let num1 = document.getElementById('numone').value
+                let num2 = (2.27).toFixed();
+                let result = document.getElementById('resultone').innerText = `${num1} Indian Rupee to Pkr` + ` ` + Number(num1) *
+                    Number(num2);
+            }
+
+            else if (currency === "dinar") {
+                let num1 = document.getElementById('numone').value
+                let num2 = (565.43).toFixed();
+                let result = document.getElementById('resultone').innerText = `${num1} kuwaiti dinar to Pkr ` + ` ` + Number(num1) *
+                    Number(num2);
+            }
+
+            else if (currency === "riyal") {
+                let num1 = document.getElementById('numone').value
+                let num2 = (442.86).toFixed();
+                let result = document.getElementById('resultone').innerText = `${num1} omani riyal to Pkr ` + ` ` + Number(num1) *
+                    Number(num2);
+            }
+            else {
+                console.log("Sorry...! We have no Converter at this time...");
+            }
+            console.log("Convert into", currency);
+        }
+
+        function ourgrade() {
+            let num = document.getElementById('numtwo').value
+            if ((num >= 90 && num <= 100)) {
+                document.getElementById('resulttwo').innerText = "Congratulation you have Got A +";
+            }
+
+            else if ((num >= 85 && num <= 89)) {
+                document.getElementById('resulttwo').innerText = "Congratulation you have Got A ";
+            }
+
+            else if ((num >= 80 && num <= 84)) {
+                document.getElementById('resulttwo').innerText = "Congratulation you have Got A -";
+            }
+
+            else if ((num >= 75 && num <= 79)) {
+                document.getElementById('resulttwo').innerText = "Congratulation you have Got B +";
+            }
+
+            else if ((num >= 70 && num <= 74)) {
+                document.getElementById('resulttwo').innerText = "Congratulation you have Got B";
+            }
+
+            else if ((num >= 65 && num <= 69)) {
+                document.getElementById('resulttwo').innerText = "You have Got Grade C +";
+            }
+
+            else if ((num >= 60 && num <= 64)) {
+                document.getElementById('resulttwo').innerText = "You have Got Grade C";
+            }
+
+            else if ((num >= 55 && num <= 59)) {
+                document.getElementById('resulttwo').innerText = "You have Got Grade D +";
+            }
+
+            else if ((num >= 50 && num <= 54)) {
+                document.getElementById('resulttwo').innerText = "You have Got Grade D";
+            }
+
+            else if ((num >= 40 && num <= 49)) {
+                document.getElementById('resulttwo').innerText = "You have Got Grade E";
+            }
+
+            else if ((num >= 0 && num <= 39)) {
+                document.getElementById('resulttwo').innerText = "You Are failed You have Got Grade F";
+            }
+            else {
+                document.getElementById('resulttwo').innerText = "Data Incompleted";
+            }
+        }
+
+
+        function check() {
+            let tem = document.getElementById('numthree').value
+            if (tem == 25) {
+                document.getElementById('resultthree').innerText = "Don't Carry Jacket";
+            }
+
+            else if (tem <= 25) {
+                document.getElementById('resultthree').innerText = "PLz Carry Jacket";
+            }
+
+            else if ((tem <= 15 && tem == 15)) {
+                document.getElementById('resultthree').innerText = "PLz Carry Coat";
+            }
+            else if ((tem <= 0 && tem == 0)) {
+                document.getElementById('resultthree').innerText = "PLz Don't go Outside";
+            }
+            else {
+                alert("Stay Home Stay Safe");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
